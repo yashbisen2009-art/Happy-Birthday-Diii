@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff0f5">
+<meta name="description" content="A little birthday surprise for Aayushi Diiii 💗">
+<title>Happy Birthday, Aayushi Diiii! 🎂</title>
+<style>
+:root{--pink:#f7a9c4;--deep:#d94f83;--cream:#fffaf5;--text:#653b50}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:"Trebuchet MS",system-ui,sans-serif;color:var(--text);background:radial-gradient(circle at top left,#ffe2ec,transparent 38%),radial-gradient(circle at bottom right,#ffe9d8,transparent 40%),#fff7fb;overflow-x:hidden}
+main{min-height:100vh;display:grid;place-items:center;padding:26px 16px;position:relative}
+.card{width:min(100%,440px);text-align:center;background:#ffffffd9;border:1px solid #fff;box-shadow:0 18px 60px #d85a8520;border-radius:30px;padding:30px 23px 28px;position:relative;z-index:1;backdrop-filter:blur(8px)}
+.tag{display:inline-block;border-radius:99px;padding:7px 13px;background:#ffe6ef;color:#b64d76;font-size:12px;letter-spacing:1.3px;text-transform:uppercase}
+h1{font-family:Georgia,serif;font-weight:normal;line-height:1.14;font-size:clamp(32px,9vw,43px);margin:17px 0 10px;color:#b94775}
+h1 span{display:block;color:#e783a7;font-style:italic}
+.subtitle{font-size:15px;line-height:1.7;margin:0 auto 20px;max-width:320px}
+.cake{font-size:74px;line-height:1.2;filter:drop-shadow(0 7px 6px #f3a3bf40);margin:14px 0 20px;animation:bob 2.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-7px) rotate(2deg)}}
+button{border:0;border-radius:99px;padding:15px 22px;width:100%;max-width:300px;background:linear-gradient(135deg,#f5a3c0,#df6f9d);color:white;font-weight:700;font-size:15px;letter-spacing:.2px;box-shadow:0 8px 20px #df6f9d45;cursor:pointer;transition:transform .2s}
+button:active{transform:scale(.97)}
+.hint{font-size:12px;color:#a8798e;margin:14px 0 0}
+.message{display:none;text-align:left;margin-top:22px;padding:20px 18px;background:#fff2f7;border:1px solid #ffdfeb;border-radius:22px;animation:reveal .6s ease both}
+.message.show{display:block}
+.message h2{text-align:center;font-family:Georgia,serif;font-size:26px;font-weight:normal;color:#bf4c7b;margin:0 0 13px}
+.message p{font-size:15px;line-height:1.8;margin:10px 0}
+.signature{text-align:right;color:#bf4c7b;font-weight:700}
+@keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.footer{font-size:11px;color:#b78a9d;margin-top:21px}
+.float{position:fixed;bottom:-35px;z-index:0;pointer-events:none;animation:rise linear forwards;opacity:.8}
+@keyframes rise{to{transform:translateY(-115vh) rotate(30deg);opacity:0}}
+.sparkle{position:absolute;opacity:.6;font-size:18px}
+.s1{top:23px;left:23px}.s2{top:45px;right:25px}.s3{bottom:35px;left:25px}.s4{bottom:70px;right:22px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<main>
+  <span class="sparkle s1">✿</span><span class="sparkle s2">✧</span>
+  <span class="sparkle s3">♡</span><span class="sparkle s4">✿</span>
+  <section class="card" aria-label="Birthday surprise for Aayushi">
+    <div class="tag">a little surprise for you ♡</div>
+    <h1>Happy Birthday,<span>Aayushi Diiii!</span></h1>
+    <p class="subtitle">Aaj ka din aapke jaisa hi special, pyaara aur full of happiness ho. 🌷</p>
+    <div class="cake" aria-hidden="true">🎂</div>
+    <button id="surprise" type="button">Open Your Surprise 💌</button>
+    <p class="hint" id="hint">Tap the button for a little birthday magic ✨</p>
+    <div class="message" id="message" aria-live="polite">
+      <h2>For my sweetest Diiii 💗</h2>
+      <p>Happy Birthday, Aayushi Diiii! 🎂🌸</p>
+      <p>Bhagwan kare aapki life hamesha khushiyon, pyaar, success aur cute little moments se bhari rahe. Aapki har wish poori ho aur aap hamesha aise hi smile karti raho. 💕</p>
+      <p>Aap mere liye bahut special ho. Aaj ka din enjoy karna, खूब saari masti karna aur cake ka ek extra piece meri taraf se! 🎀🍰</p>
+    </div>
+    <div class="footer">made with lots of love, just for you ✨</div>
+  </section>
+</main>
+<script>
+const button=document.getElementById('surprise');
+const message=document.getElementById('message');
+const hint=document.getElementById('hint');
+let opened=false;
+function floatHeart(){
+ const el=document.createElement('span');
+ el.className='float';
+ const symbols=['♡','💗','💕','✿','✨','🌸'];
+ el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+ el.style.left=(Math.random()*94+3)+'vw';
+ el.style.fontSize=(16+Math.random()*20)+'px';
+ el.style.animationDuration=(4+Math.random()*3)+'s';
+ document.body.appendChild(el);
+ setTimeout(()=>el.remove(),7500);
+}
+button.addEventListener('click',()=>{
+ opened=!opened;
+ message.classList.toggle('show',opened);
+ button.textContent=opened?'A Little More Love 💖':'Open Your Surprise 💌';
+ hint.textContent=opened?'Sending you a sky full of love! ✨':'Tap the button for a little birthday magic ✨';
+ for(let i=0;i<36;i++)setTimeout(floatHeart,i*65);
+ if(opened)message.scrollIntoView({behavior:'smooth',block:'nearest'});
+});
+</script>
+</body>
+</html>
